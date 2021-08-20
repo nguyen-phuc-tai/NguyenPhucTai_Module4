@@ -1,0 +1,31 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="EjbClassBasicInspection" enabled="true" level="TYPO" enabled_by_default="true">
+      <scope name="Project Files" level="TYPO" enabled="true" />
+    </inspection_tool>
+    <inspection_tool class="EjbClassWarningsInspection" enabled="true" level="TYPO" enabled_by_default="true" />
+    <inspection_tool class="EjbDomInspection" enabled="true" level="TYPO" enabled_by_default="true" />
+    <inspection_tool class="EjbEntityClassInspection" enabled="true" level="TYPO" enabled_by_default="true" />
+    <inspection_tool class="EjbEntityHomeInspection" enabled="true" level="TYPO" enabled_by_default="true" />
+    <inspection_tool class="EjbEntityInterfaceInspection" enabled="true" level="TYPO" enabled_by_default="true" />
+    <inspection_tool class="EjbEnvironmentInspection" enabled="true" level="TYPO" enabled_by_default="true" />
+    <inspection_tool class="EjbInterceptorInspection" enabled="true" level="TYPO" enabled_by_default="true" />
+    <inspection_tool class="EjbInterceptorWarningsInspection" enabled="true" level="TYPO" enabled_by_default="true" />
+    <inspection_tool class="EjbInterfaceMethodInspection" enabled="true" level="TYPO" enabled_by_default="true" />
+    <inspection_tool class="EjbInterfaceSignatureInspection" enabled="true" level="TYPO" enabled_by_default="true" />
+    <inspection_tool class="EjbProhibitedPackageUsageInspection" enabled="true" level="TYPO" enabled_by_default="true" />
+    <inspection_tool class="EjbQlInspection" enabled="true" level="TYPO" enabled_by_default="true" />
+    <inspection_tool class="EjbRemoteRequirementsInspection" enabled="true" level="TYPO" enabled_by_default="true" />
+    <inspection_tool class="EjbSessionHomeInterfaceInspection" enabled="true" level="TYPO" enabled_by_default="true" />
+    <inspection_tool class="EjbStaticAccessInspection" enabled="true" level="TYPO" enabled_by_default="true" />
+    <inspection_tool class="EjbThisExpressionInspection" enabled="true" level="TYPO" enabled_by_default="true" />
+    <inspection_tool class="JavaeeApplicationDomInspection" enabled="true" level="TYPO" enabled_by_default="true" />
+    <inspection_tool class="ManagedBeanClassInspection" enabled="true" level="TYPO" enabled_by_default="true" />
+    <inspection_tool class="MimeType" enabled="true" level="TYPO" enabled_by_default="true" />
+    <inspection_tool class="SecurityRoles" enabled="true" level="TYPO" enabled_by_default="true" />
+    <inspection_tool class="ServletWithoutMappingInspection" enabled="true" level="TYPO" enabled_by_default="true" />
+    <inspection_tool class="WebProperties" enabled="true" level="TYPO" enabled_by_default="true" />
+    <inspection_tool class="WebWarnings" enabled="true" level="TYPO" enabled_by_default="true" />
+  </profile>
+</component>

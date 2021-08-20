@@ -1,0 +1,2 @@
+com/example/controller/DictionaryController.java
+ com.example.controller.DictionaryController
