@@ -13,7 +13,7 @@ import java.io.IOException;
 @Controller
 public class DictionaryController {
     @Autowired
-    DictionaryService dictionaryService;
+    private  DictionaryService dictionaryService;
 
     @GetMapping("/")
     public String showForm() {
