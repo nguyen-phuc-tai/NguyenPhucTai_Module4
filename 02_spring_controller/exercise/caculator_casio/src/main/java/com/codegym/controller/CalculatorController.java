@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class CalculatorController {
 
     @Autowired
-    CalculatorService calculatorService;
+    private CalculatorService calculatorService;
 
     @GetMapping("/")
     public String showHomePage(){
