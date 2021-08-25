@@ -32,6 +32,7 @@ public class HealthDeclarationController {
         return modelAndView;
     }
 
+
     @GetMapping("/create")
     public String showForm(Model model){
         model.addAttribute("people",new People());
@@ -40,9 +41,7 @@ public class HealthDeclarationController {
 
     @PostMapping(value = "/create")
     public String save(@ModelAttribute("people") People people, RedirectAttributes redirectAttributes, Model model){
-        List<String> symptom = Arrays.asList(people.getSymptom());
         peopleService.save(people);
-        model.addAttribute("symptom", symptom);
         redirectAttributes.addFlashAttribute("msg","Success!!");
         return "redirect:/peoples/list";
     }
