@@ -19,6 +19,14 @@ public class PeopleServiceimpl implements IPeopleService{
     }
 
     @Override
+    public People findOne(Long id) {
+        return listpeople.stream()
+                .filter(c -> c.getId().equals(id))
+                .findFirst()
+                .orElse(null);
+    }
+
+    @Override
     public void save(People people) {
         listpeople.add(people);
     }

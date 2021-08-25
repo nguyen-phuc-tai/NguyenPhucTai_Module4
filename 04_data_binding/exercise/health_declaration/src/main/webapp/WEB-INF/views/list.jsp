@@ -31,7 +31,7 @@
                 <c:out value="${people.id}"/>
             </td>
             <td>
-                <c:out value="${people.name}"/>
+                <a href="/peoples/edit/${people.id}">${people.name}</a>
             </td>
             <td>
                 <c:out value="${people.email}"/>
