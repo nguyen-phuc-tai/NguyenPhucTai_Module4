@@ -1,0 +1,8 @@
+com/codegym/controller/HealthDeclarationController.java
+ com.codegym.controller.HealthDeclarationController
+com/codegym/model/bean/People.java
+ com.codegym.model.bean.People
+com/codegym/model/service/PeopleServiceimpl.java
+ com.codegym.model.service.PeopleServiceimpl
+com/codegym/model/service/IPeopleService.java
+ com.codegym.model.service.IPeopleService
