@@ -1,0 +1,18 @@
+com/codegym/model/repository/BaseRepository.java
+ com.codegym.model.repository.BaseRepository
+com/codegym/controller/ProductController.java
+ com.codegym.controller.ProductController
+com/codegym/model/repository/ProductRepositoryImpl.java
+ com.codegym.model.repository.ProductRepositoryImpl
+com/codegym/model/service/ProductServiceImpl.java
+ com.codegym.model.service.ProductServiceImpl
+com/codegym/model/service/ProductService.java
+ com.codegym.model.service.ProductService
+com/codegym/model/repository/ProductRepository.java
+ com.codegym.model.repository.ProductRepository
+com/codegym/model/bean/Product.java
+ com.codegym.model.bean.Product
+com/codegym/configuration/AppConfiguration.java
+ com.codegym.configuration.AppConfiguration
+com/codegym/configuration/AppInitializer.java
+ com.codegym.configuration.AppInitializer
