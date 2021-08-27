@@ -1,0 +1,20 @@
+com/codegym/cms/model/bean/Blog.java
+ com.codegym.cms.model.bean.Blog
+com/codegym/cms/model/repository/impl/BlogRepositoryImpl.java
+ com.codegym.cms.model.repository.impl.BlogRepositoryImpl
+com/codegym/cms/model/service/BlogService.java
+ com.codegym.cms.model.service.BlogService
+com/codegym/cms/configuration/AppConfig.java
+ com.codegym.cms.configuration.AppConfig
+com/codegym/cms/configuration/AppInit.java
+ com.codegym.cms.configuration.AppInit
+com/codegym/cms/model/service/impl/BlogServiceImpl.java
+ com.codegym.cms.model.service.impl.BlogServiceImpl
+com/codegym/cms/model/repository/GeneralRepository.java
+ com.codegym.cms.model.repository.GeneralRepository
+com/codegym/cms/model/service/GeneralService.java
+ com.codegym.cms.model.service.GeneralService
+com/codegym/cms/controller/BlogController.java
+ com.codegym.cms.controller.BlogController
+com/codegym/cms/model/repository/BlogRepository.java
+ com.codegym.cms.model.repository.BlogRepository
