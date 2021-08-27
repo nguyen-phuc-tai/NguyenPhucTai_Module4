@@ -1,32 +1,30 @@
 package com.codegym.model.service;
 
 import com.codegym.model.bean.People;
+import com.codegym.model.repository.PeopleRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
-
 
 @Service
 public class PeopleServiceimpl implements IPeopleService{
 
-    private static List<People> listpeople = new ArrayList<>();
+    @Autowired
+    private PeopleRepository peopleRepository;
 
     @Override
     public List<People> findAll() {
-        return new ArrayList<>(listpeople);
+        return peopleRepository.findAll();
     }
 
     @Override
     public People findOne(Long id) {
-        return listpeople.stream()
-                .filter(c -> c.getId().equals(id))
-                .findFirst()
-                .orElse(null);
+        return peopleRepository.findOne(id);
     }
 
     @Override
     public void save(People people) {
-        listpeople.add(people);
+        peopleRepository.save(people);
     }
 }
