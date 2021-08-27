@@ -50,7 +50,7 @@ public class HealthDeclarationController {
     }
 
     @PostMapping(value = "/create")
-    public String save(@ModelAttribute("people") People people, RedirectAttributes redirectAttributes, Model model){
+    public String save(@ModelAttribute("people") People people, RedirectAttributes redirectAttributes){
         peopleService.save(people);
         redirectAttributes.addFlashAttribute("msg","Success!!");
         return "redirect:/peoples/list";
