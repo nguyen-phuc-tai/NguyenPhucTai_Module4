@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head></head>
+<body>
+<h3>View Blog</h3>
+<p>
+    <a th:href="@{/category}">
+        Back to category list
+    </a>
+</p>
+<table border="1px">
+    <thead>
+    <tr>
+        <th>No</th>
+        <th>id</th>
+        <th>Name</th>
+        <th>Content</th>
+        <th>Category</th>
+        <th>Create start time</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="blog,index : ${blogList}">
+        <td th:text="${index.count}"></td>
+        <td th:text="${blog.id}"></td>
+        <td th:text="${blog.name}"></td>
+        <td th:text="${blog.content}"></td>
+        <td th:text="${blog.category.name}"></td>
+        <td th:text="${blog.createStartTime}"></td>
+    </tr>
+    </tbody>
+</table>
+
+<div>
+    <a th:href="@{'/category/{id}/view'(page=${blogList.number - 1}, id = ${idCategory})}" th:if="${blogList.hasPrevious()}">Previous</a>
+    <span th:text="${blogList.number + 1}"></span>/<span th:text="${blogList.totalPages}"></span>
+    <a th:href="@{'/category/{id}/view'(page=${blogList.number + 1}, id = ${idCategory})}" th:if="${blogList.hasNext()}">Next</a>
+</div>
+</body>
+</html>

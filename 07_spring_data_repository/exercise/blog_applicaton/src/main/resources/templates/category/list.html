@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+</head>
+
+<body>
+<h3>Category List</h3>
+<p>
+    <a th:href="@{/category/create}">
+        Add new category
+    </a>
+</p>
+
+<div class="notify">
+    <!--/*@thymesVar id="msgSuccess" type="com"*/-->
+    <div th:if="${msgSuccess}">
+        <span style="color: green" th:text="${msgSuccess}"></span>
+    </div>
+</div>
+
+<table border="1px">
+    <thead>
+    <tr>
+        <th>No</th>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Edit</th>
+        <th>Delete</th>
+        <th>View</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="category,index : ${categories}">
+        <td th:text="${index.count}"></td>
+        <td th:text="${category.id}"></td>
+        <td th:text="${category.name}"></td>
+        <td><a th:href="@{/category/{id}/edit(id=${category.id})}">edit</a></td>
+        <td><a th:href="@{/category/{id}/delete(id=${category.id})}">delete</a></td>
+        <td><a th:href="@{/category/{id}/view(id=${category.id})}">view</a></td>
+    </tr>
+    </tbody>
+</table>
+<footer></footer>
+</body>
+</html>
