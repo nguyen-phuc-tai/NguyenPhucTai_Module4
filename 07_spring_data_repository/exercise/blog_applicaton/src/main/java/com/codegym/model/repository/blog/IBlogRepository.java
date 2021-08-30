@@ -1,6 +1,6 @@
 package com.codegym.model.repository.blog;
 
-import com.codegym.model.bean.Blog;
+import com.codegym.model.entity.Blog;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;

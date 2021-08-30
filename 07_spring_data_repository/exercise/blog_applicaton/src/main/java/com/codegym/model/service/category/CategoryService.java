@@ -1,6 +1,6 @@
 package com.codegym.model.service.category;
 
-import com.codegym.model.bean.Category;
+import com.codegym.model.entity.Category;
 import com.codegym.model.repository.category.ICategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

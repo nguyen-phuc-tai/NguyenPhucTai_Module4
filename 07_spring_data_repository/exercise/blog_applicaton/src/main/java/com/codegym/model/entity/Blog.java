@@ -1,4 +1,4 @@
-package com.codegym.model.bean;
+package com.codegym.model.entity;
 
 import javax.persistence.*;
 
