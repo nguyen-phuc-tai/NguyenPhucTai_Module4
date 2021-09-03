@@ -22,10 +22,10 @@ import java.util.Optional;
 @RequestMapping("/blog")
 public class BlogController {
     @Autowired
-    IBlogService iBlogService;
+    private IBlogService iBlogService;
 
     @Autowired
-    ICategoryService iCategoryService;
+    private ICategoryService iCategoryService;
 
     @GetMapping({"", "/list"})
     public String list(@PageableDefault(value = 4, sort = "createStartTime",  direction = Sort.Direction.DESC)

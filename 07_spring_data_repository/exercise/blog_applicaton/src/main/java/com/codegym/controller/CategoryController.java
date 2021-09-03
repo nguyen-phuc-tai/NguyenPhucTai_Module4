@@ -19,10 +19,10 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @RequestMapping("/category")
 public class CategoryController {
     @Autowired
-    ICategoryService iCategoryService;
+    private ICategoryService iCategoryService;
 
     @Autowired
-    IBlogService iBlogService;
+    private IBlogService iBlogService;
 
     @GetMapping("")
     public String list(@PageableDefault(value = 5) Pageable pageable, Model model) {
