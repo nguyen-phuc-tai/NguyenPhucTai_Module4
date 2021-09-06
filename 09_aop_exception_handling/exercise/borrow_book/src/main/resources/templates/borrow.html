@@ -1,0 +1,45 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Rent Book</title>
+  <style>
+    table, tr, td {
+      border: 1px solid black;
+    }
+    div {
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+<h3>Borrow book</h3>
+
+<div>
+  <form th:object="${book}" th:action="@{/book/borrow}" method="post">
+    <div>
+      <label>Id:</label>
+      <input th:field="*{id}"  readonly>
+    </div>
+    <div>
+      <label>Name:</label>
+      <input th:field="*{name}" readonly>
+    </div>
+    <div>
+      <label>Author:</label>
+      <input th:field="*{author}" readonly>
+    </div>
+    <div>
+      <label>Quantity :</label>
+      <input th:field="*{quantity}" readonly>
+    </div>
+    <input type="submit" value="borrow books">
+  </form>
+</div>
+
+<div>
+  <button><a th:href="@{/book}">Back to list</a></button>
+</div>
+</body>
+</html>

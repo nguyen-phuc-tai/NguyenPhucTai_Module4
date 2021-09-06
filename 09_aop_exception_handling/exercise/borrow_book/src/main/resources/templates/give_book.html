@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Return Book</title>
+</head>
+<body>
+<form th:action="@{give}" th:object="${customerCode}" method="post">
+  <fieldset>
+    <legend>Return Book</legend>
+    <label>Rental Code</label>
+    <input type="text" placeholder="Enter Rental Code" th:field="*{codeForBook}">
+    <br><br>
+    <input type="submit" th:value="Submit">
+  </fieldset>
+</form>
+<div>
+  <button><a th:href="@{/book}">Back to home</a></button>
+</div>
+</body>
+</html>

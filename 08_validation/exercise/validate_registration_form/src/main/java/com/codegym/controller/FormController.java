@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import java.util.Optional;
+
 @Controller
 public class FormController {
     @Autowired
@@ -25,7 +27,13 @@ public class FormController {
     }
 
     @PostMapping(value = "/")
-    public String result(@Validated @ModelAttribute("userDto") UserDto userDto, BindingResult bindingResult) {
+    public String result(@Validated @ModelAttribute("userDto") UserDto userDto, BindingResult bindingResult, Model model) {
+
+        Optional<User> users =userService.findAllByEmail(userDto.getEmail());
+        if(users.isPresent()){
+            model.addAttribute("msg","email đã tồn tại");
+            return "/index";
+        }
         if (bindingResult.hasFieldErrors()) {
             return "/index";
         }else {

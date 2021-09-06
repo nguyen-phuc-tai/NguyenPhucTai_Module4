@@ -12,7 +12,7 @@ import javax.validation.constraints.*;
 @Setter
 @Getter
 @NoArgsConstructor
-public class UserDto implements Validator {
+public class UserDto{
     private Integer id;
 
     @NotEmpty
@@ -32,12 +32,4 @@ public class UserDto implements Validator {
     @Email
     private String email;
 
-    @Override
-    public boolean supports(Class<?> clazz) {
-        return User.class.isAssignableFrom(clazz);
-    }
-
-    @Override
-    public void validate(Object target, Errors errors) {
-    }
 }
