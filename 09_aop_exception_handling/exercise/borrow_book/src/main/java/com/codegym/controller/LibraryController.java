@@ -48,7 +48,7 @@ public class LibraryController {
         bookService.save(book);
         int randomCode = (int) Math.floor(((Math.random() * 12345) + 10000));
         String rentCode = String.valueOf(randomCode);
-        model.addAttribute("rentCode",rentCode);
+        model.addAttribute("bookCode",rentCode);
         CodeBook customerCode = new CodeBook();
         customerCode.setCodeForBook(rentCode);
         customerCode.setBook(book);
@@ -63,7 +63,7 @@ public class LibraryController {
 
     @GetMapping("/give")
     public ModelAndView showGiveBook() {
-        return new ModelAndView("give_book","customerCode",new CodeBook());
+        return new ModelAndView("give_book","bookCode",new CodeBook());
     }
 
     @PostMapping("/give")
