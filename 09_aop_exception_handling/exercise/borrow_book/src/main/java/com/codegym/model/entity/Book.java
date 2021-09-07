@@ -26,5 +26,4 @@ public class Book {
 
     @OneToMany(mappedBy = "book", cascade = CascadeType.ALL)
     private Set<CodeBook> codeSet;
-
 }

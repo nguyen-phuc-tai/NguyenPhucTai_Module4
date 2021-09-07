@@ -29,6 +29,7 @@ public class LibraryAspect {
         System.err.println("Book has been returned - method called : " + joinPoint.getSignature().getName() + " - at : " + LocalDateTime.now());
     }
 
+
     @Pointcut("execution(* com.codegym.controller.LibraryController.*(..))")
     public void viewCount() {
     }
@@ -37,6 +38,5 @@ public class LibraryAspect {
     public void count() {
         view += 1;
         System.err.println("Total views " + view );
-
     }
 }

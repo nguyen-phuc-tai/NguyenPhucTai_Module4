@@ -53,7 +53,7 @@ public class LibraryController {
         customerCode.setCodeForBook(rentCode);
         customerCode.setBook(book);
         customerCodeService.save(customerCode);
-        return "list";
+        return "redirect:/book/list";
     }
 
     @ExceptionHandler(OutOfStockException.class)
@@ -72,13 +72,15 @@ public class LibraryController {
         if (rentCode == null) {
             throw new WrongCodeException();
         }
+
         Book book = rentCode.getBook();
         Integer quantity = book.getQuantity();
         book.setQuantity(quantity + 1);
         bookService.save(book);
+
         customerCodeService.delete(rentCode.getId());
         model.addAttribute("message","Return book success");
-        return "list";
+        return "redirect:/book/list";
     }
 
     @ExceptionHandler(WrongCodeException.class)
