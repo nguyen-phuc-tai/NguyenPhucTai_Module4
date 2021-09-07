@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<h2>Danh sách sản phẩm </h2>
+<table border="1">
+  <thead>
+  <th>ID</th>
+  <th>Name</th>
+  <th>Price</th>
+  <th>Img</th>
+  <th>Action</th>
+  </thead>
+  <tbody>
+  <tr th:each="item : ${items}">
+    <td th:text="${item.id}"></td>
+    <td th:text="${item.name}"></td>
+    <td th:text="${item.price}"></td>
+    <td>
+      <img th:src="@{'/img/hoa'+ ${item.id}+ '.jpg'}" width="100px" height="100px"/>
+    </td>
+    <td>
+      <button>
+        <a th:href="@{/detail/{id}(id = ${item.id})}">Detail</a>
+      </button>
+    </td>
+  </tr>
+  </tbody>
+</table>
+<div>
+  <button>
+    <a th:href="@{/cartDto}">Go To Cart</a>
+  </button>
+</div>
+</body>
+</html>

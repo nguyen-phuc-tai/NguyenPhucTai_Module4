@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<h2>Detail Item</h2>
+<a th:href="@{/}">Back to list Items</a>
+<th:block th:if="${message}">
+  <h3><p th:text="${message}"></p></h3>
+</th:block>
+
+<th:block th:object="${item}">
+  <table border="1">
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Price</th>
+    </tr>
+    <tr>
+      <td th:text="${item.id}"></td>
+      <td th:text="${item.name}"></td>
+      <td th:text="${item.price}"></td>
+    </tr>
+  </table>
+
+  <button>
+    <a th:href="@{/add/__${item.id}__(action='add')}">add to cartDto</a>
+  </button>
+</th:block>
+
+<div>
+  <a th:href="@{/cartDto}"> Go to Cart</a>
+</div>
+
+</body>
+</html>
