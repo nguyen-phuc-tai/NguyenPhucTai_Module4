@@ -8,6 +8,8 @@
 <body>
 <h2>Cart Item</h2>
 <a th:href="@{/}">Back to list Items</a>
+<th:block th:if="${mgs}">
+    <h3><p th:text="${mgs}"></p></h3>
 <table border="1">
     <tr>
         <th>Item</th>

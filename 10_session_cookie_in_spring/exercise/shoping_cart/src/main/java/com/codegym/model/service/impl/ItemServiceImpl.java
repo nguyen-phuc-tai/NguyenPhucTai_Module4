@@ -6,6 +6,7 @@ import com.codegym.model.service.ItemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
+import java.util.Optional;
 
 
 @Service
@@ -19,8 +20,8 @@ public class ItemServiceImpl implements ItemService {
     }
 
     @Override
-    public Item findById(Integer id) {
-        return itemRepository.findById(id).orElse(null);
+    public Optional<Item> findById(Integer id) {
+        return itemRepository.findById(id);
     }
 
     @Override

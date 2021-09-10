@@ -7,6 +7,9 @@
 </head>
 <body>
 <h2>Danh sách sản phẩm </h2>
+<th:block th:if="${mgs}">
+  <h3><p th:text="${mgs}"></p></h3>
+</th:block>
 <table border="1">
   <thead>
   <th>ID</th>
