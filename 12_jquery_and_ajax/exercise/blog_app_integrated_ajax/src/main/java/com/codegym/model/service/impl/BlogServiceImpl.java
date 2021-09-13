@@ -9,10 +9,12 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
+
 @Service
 public class BlogServiceImpl implements IBlogService {
     @Autowired
-    IBlogRepository blogRepository;
+    private IBlogRepository blogRepository;
 
     @Override
     public Page<Blog> findAllBlog(Pageable pageable) {
@@ -22,5 +24,10 @@ public class BlogServiceImpl implements IBlogService {
     @Override
     public List<Blog> findAllByName(String name) {
         return blogRepository.findAllByName(name);
+    }
+
+    @Override
+    public Optional<Blog> findById(Integer id) {
+        return blogRepository.findById(id);
     }
 }

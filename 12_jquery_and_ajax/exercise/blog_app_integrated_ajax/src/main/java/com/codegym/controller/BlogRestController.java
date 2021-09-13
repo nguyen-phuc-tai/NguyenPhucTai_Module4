@@ -3,16 +3,11 @@ package com.codegym.controller;
 import com.codegym.model.entity.Blog;
 import com.codegym.model.service.IBlogService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 @RestController
@@ -21,7 +16,7 @@ import java.util.List;
 public class BlogRestController {
     private static Integer number = 1;
     @Autowired
-    IBlogService blogService;
+    private IBlogService blogService;
 
     @GetMapping("/list")
     public ResponseEntity<Page<Blog>> showBlog(@RequestParam int page){
@@ -31,15 +26,6 @@ public class BlogRestController {
         }
         return new ResponseEntity<>(blogList,HttpStatus.OK);
     }
-//    @GetMapping("/load")
-//    public ResponseEntity<List<Blog>> loadMoreList(){
-//        number += 1;
-//        List<Blog> blogList = this.blogService.findAllBlog(number);
-//        if(blogList.isEmpty()){
-//            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-//        }
-//        return new ResponseEntity<>(blogList,HttpStatus.OK);
-//    }
 
     @GetMapping(value = "/search/{keyword}")
     public ResponseEntity<List<Blog>> searchByName(@PathVariable String keyword){
