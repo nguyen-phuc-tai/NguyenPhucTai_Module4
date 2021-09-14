@@ -123,15 +123,15 @@
         });
     })
 
-    function showDetail(idBlog) {
+    function showDetail(id) {
         $.ajax({
             url: 'http://localhost:8080/' + id,
             type: 'get',
             dateType: 'json',
             success: function (data) {
-                $('#nameBlog').value = data.name;
-                $('#contentBlog').value = data.content;
-                $('#nameCategory').value = data.category.typeCategory;
+                $('#blog-name').value = data.name;
+                $('#blog-conten').value = data.content;
+                $('#category-blog').value = data.category.typeCategory;
             }
         })
     }
