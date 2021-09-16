@@ -45,6 +45,5 @@ public class BlogRestController {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
         return new ResponseEntity<>(blogs.get(), HttpStatus.OK);
-
     }
 }
