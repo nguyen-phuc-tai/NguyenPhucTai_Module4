@@ -19,11 +19,11 @@
     </tr>
     <tr>
       <td>Catelory:</td>
-      <td><select th:field="*{cateloryBlog}">
+      <td><select th:field="*{categoryBlog}">
         <option th:each="cateObj : ${cateloryList}"
                 th:value="${cateObj.idCatelory}"
                 th:text="${cateObj.typeCatelory}"
-                th:selected="(${blog.cateloryBlog}) and (${cateObj.idCatelory}==*{cateloryBlog.idCatelory})">
+                th:selected="(${blog.categoryBlog}) and (${cateObj.idCatelory}==*{categoryBlog.idCatelory})">
 
         </option>
       </select></td>

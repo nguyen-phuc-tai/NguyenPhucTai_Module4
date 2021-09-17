@@ -22,10 +22,10 @@
       </tr>
       <tr>
         <td>Catelory</td>
-        <td><select th:field="*{cateloryBlog}">
-          <option th:each="catelory : ${cateloryList}"
-                  th:value="${catelory.idCatelory}"
-                  th:text="${catelory.typeCatelory}">
+        <td><select th:field="*{categoryBlog}">
+          <option th:each="category : ${cateloryList}"
+                  th:value="${category.idCatelory}"
+                  th:text="${category.typeCatelory}">
           </option>
         </select></td>
       </tr>

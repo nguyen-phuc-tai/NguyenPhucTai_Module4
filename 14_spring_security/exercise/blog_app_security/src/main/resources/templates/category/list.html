@@ -2,11 +2,11 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
-  <title>List Catelory</title>
+  <title>List Category</title>
 </head>
 <body>
-<h1>Catelory List</h1>
-<h2><a th:href="@{/templates/category/catelory-create}">Create Catelory</a></h2>
+<h1>Category List</h1>
+<h2><a th:href="@{/templates/category/category-create}">Create Category</a></h2>
 <h4><a th:href="@{/}">Back to Blog List</a></h4>
 <table border="1">
   <tr>
@@ -16,12 +16,12 @@
     <th>Edit</th>
     <th>Delete</th>
   </tr>
-  <tr th:each="cateObj,cateLoop : ${caleloryList}">
+  <tr th:each="cateObj,cateLoop : ${categoryList}">
     <td th:text="${cateLoop.index + 1}"></td>
-    <td th:text="${cateObj.idCatelory}"></td>
-    <td th:text="${cateObj.typeCatelory}"></td>
-    <td><a th:href="@{/catelory-edit/edit(id=${cateObj.idCatelory})}">Edit</a></td>
-    <td><a th:href="@{/catelory-delete/delete(id=${cateObj.idCatelory})}">Delete</a></td>
+    <td th:text="${cateObj.idCategory}"></td>
+    <td th:text="${cateObj.typeCategory}"></td>
+    <td><a th:href="@{/category-edit/edit(id=${cateObj.idCategory})}">Edit</a></td>
+    <td><a th:href="@{/category-delete/delete(id=${cateObj.idCategory})}">Delete</a></td>
   </tr>
 </table>
 </body>

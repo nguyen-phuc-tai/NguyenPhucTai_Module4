@@ -1,37 +1,37 @@
 package com.codegym.model.service.impl;
 
-import com.codegym.model.entity.Catelory;
+import com.codegym.model.entity.Category;
 import com.codegym.model.repository.ICateloryRepository;
-import com.codegym.model.service.ICateloryService;
+import com.codegym.model.service.ICategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 @Service
-public class CateloryServiceImpl implements ICateloryService {
+public class CategoryServiceImpl implements ICategoryService {
 
     @Autowired
     ICateloryRepository cateloryRepository;
 
 
     @Override
-    public List<Catelory> findAll() {
+    public List<Category> findAll() {
         return cateloryRepository.findAll();
     }
 
     @Override
-    public Catelory findById(Integer id) {
+    public Category findById(Integer id) {
         return cateloryRepository.findById(id).orElse(null);
     }
 
     @Override
-    public void save(Catelory catelory) {
-        cateloryRepository.save(catelory);
+    public void save(Category category) {
+        cateloryRepository.save(category);
     }
 
     @Override
-    public void update(Catelory catelory) {
-        cateloryRepository.save(catelory);
+    public void update(Category category) {
+        cateloryRepository.save(category);
     }
 
     @Override

@@ -14,7 +14,7 @@ public class Blog {
     private Date dateBlog = new Date(System.currentTimeMillis());
     @ManyToOne
     @JoinColumn(name = "catelory_id", referencedColumnName = "idCatelory")
-    private Catelory cateloryBlog;
+    private Category categoryBlog;
 
     public Blog() {
     }
@@ -51,11 +51,11 @@ public class Blog {
         this.dateBlog = dateBlog;
     }
 
-    public Catelory getCateloryBlog() {
-        return cateloryBlog;
+    public Category getCateloryBlog() {
+        return categoryBlog;
     }
 
-    public void setCateloryBlog(Catelory cateloryBlog) {
-        this.cateloryBlog = cateloryBlog;
+    public void setCateloryBlog(Category categoryBlog) {
+        this.categoryBlog = categoryBlog;
     }
 }

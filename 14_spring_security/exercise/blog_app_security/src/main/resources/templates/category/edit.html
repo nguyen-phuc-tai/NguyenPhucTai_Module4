@@ -2,16 +2,16 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
-  <title>Edit Catelory</title>
+  <title>Edit Category</title>
 </head>
 <body>
-<h1>Edit Catelory</h1>
-<form th:action="@{/templates/category/catelory-edit/edit}" th:object="${catelory}" method="post">
-  <input type="hidden" th:field="*{idCatelory}">
+<h1>Edit Category</h1>
+<form th:action="@{/templates/category/category-edit/edit}" th:object="${category}" method="post">
+  <input type="hidden" th:field="*{idCategory}">
   <table border="1">
     <tr>
-      <td>Type Catelory :</td>
-      <td><input th:field="*{typeCatelory}" type="text"></td>
+      <td>Type Category :</td>
+      <td><input th:field="*{typeCategory}" type="text"></td>
       <td>
         <input type="submit" value="Save">
       </td>
