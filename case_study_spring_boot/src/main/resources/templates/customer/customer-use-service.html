@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="~{layout :: title(ListCustomer)}">
+    <meta charset="UTF-8">
+    <title></title>
+
+</head>
+<body>
+<div class="security" th:insert"~{home:: sercurety}"></div>
+<div th:replace="~{home :: nav-bar}"></div>
+<div style="margin-bottom: 10px">
+
+        <div style=" text-align: right; display: inline-block;  margin-left: 1100px" class="notify">
+            <form class="form-inline my-2 my-l  g-0" action="/customerUseService">
+                <input class="form-control mr-sm-2" type="search" placeholder="Tên khách hàng" aria-label="Search"
+                       name="customerName">
+                <button class="btn btn-primary my-2 my-sm-0" type="submit" style="color: white">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search"
+                         viewBox="0 0 16 16">
+                        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                    </svg>
+                    <span>Search</span>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <div th:align="center" th:if="${lost}">
+        <span style="color: red" th:text="${lost}"></span>
+    </div>
+    <div th:align="center" th:if="${success}">
+        <span style="color: gold" th:text="${success}"></span>
+    </div>
+
+    <div class="container border pt-5 mt-5 ">
+        <div>
+            <table class="table table-bordered table-striped">
+                <thead>
+                <tr style="text-align: center" class="table-primary">
+                    <th>STT</th>
+                    <th>Contract Id</th>
+                    <th>Customer Name</th>
+                    <th>Contract Start Day</th>
+                    <th>Contract End Day</th>
+                    <th>Attach Service</th>
+                    <th>Total Money(VND)</th>
+                    <th>Thêm dịch vụ</th>
+                </tr>
+                </thead>
+
+                <tbody>
+                <tr style="text-align: center" th:each=" contract, tem : ${contractList}">
+                    <td th:text="${tem.count}"></td>
+                    <td th:text="${contract.contractId}"></td>
+                    <td th:text="${contract.customer.name}"></td>
+                    <td th:text="${contract.getContractStartDate()}"></td>
+                    <td th:text="${contract.getContractEndDate()}"></td>
+                    <td>
+                        <ul class="nav nav-pills" style="margin-left: 90px">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle text-white" data-toggle="dropdown" role="button"
+                                   aria-haspopup="true" aria-expanded="false">
+                                <span th:each="contractDetail : ${contractDetailOther}"
+                                      th:text="${contractDetail.contractId == contract.contractId ? contractDetail.attachServiceName + '  ' : ''}"></span>
+                                </a>
+                                <div class="dropdown-menu">
+                                <span class="dropdown-item" th:each="contractDetail : ${contractDetailOther}"
+                                      th:text="${contractDetail.contractId == contract.contractId ?
+                                      (contractDetail.attachServiceName + ' - Số lượng: ' + contractDetail.quantity) : ''}">
+                                </span>
+                                </div>
+                            </li>
+                        </ul>
+                    </td>
+
+                    <td th:text="${contract.contractTotalMoney}"></td>
+                    <td>
+                        <a th:href="@{contract_details/create}">
+                            <button class="btn btn-success">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
+                                    <path d="M8 0a1 1 0 0 1 1 1v6h6a1 1 0 1 1 0 2H9v6a1 1 0 1 1-2 0V9H1a1 1 0 0 1 0-2h6V1a1 1 0 0 1 1-1z"/>
+                                </svg>
+                                <span style="font-family: Averta">Thêm dịch vụ</span>
+                            </button>
+                        </a>
+                    </td>
+
+                </tr>
+                </tbody>
+            </table>
+            <div>
+                <a th:href="@{'/customerUseService'(page=${contractList.number - 1}, customerName=${keywordCustomerName})}"
+                   th:if="${contractList.hasPrevious()}">Previous</a>
+                <span th:text="${contractList.number+1}"></span>/<span th:text="${contractList.totalPages}"></span>
+                <a th:href="@{'/customerUseService'(page=${contractList.number + 1}, , customerName=${keywordCustomerName})}"
+                   th:if="${contractList.hasNext()}">Next</a>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div th:replace="~{home:: footer}"></div>
+</body>
+</html>

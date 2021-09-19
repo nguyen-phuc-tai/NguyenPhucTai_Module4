@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="~{layout :: title(ListContract)}">
+    <meta charset="UTF-8">
+    <title></title>
+
+</head>
+
+<body>
+<div class="security" th:insert="~{home:: sercurety}"></div>
+<div th:replace="~{home :: nav-bar}"></div>
+
+<div>
+    <div style=" display:inline-block; margin-left: 105px; margin-bottom: 5px">
+        <div style="display: inline-block">
+            <a th:href="@{/contracts/create}">
+                <button type="button" class="btn btn-success my-2 my-sm-0" style="color: white">
+                    <svg xmln="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi
+                    bi-pencil-square" viewBox="0 0 16 16">
+                        <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75
+                    2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.50 0 0
+                    .196-.12l6.813-6.814z"/>
+                        <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0
+                    1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1
+                    2.5v11z"/>
+                    </svg>
+                    Thêm mới hợp đồng
+                </button>
+            </a>
+        </div>
+       <div style="display: inline-block; margin-left: 20px">
+           <a th:href="@{/contract_details/create}">
+               <button type="button" class="btn btn-success my-2 my-sm-0" style="color: white">
+                   <svg xmln="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi
+                    bi-pencil-square" viewBox="0 0 16 16">
+                       <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75
+                    2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.50 0 0
+                    .196-.12l6.813-6.814z"/>
+                       <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0
+                    1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1
+                    2.5v11z"/>
+                   </svg>
+                   Thêm mới dịch vụ đi kèm
+               </button>
+           </a>
+       </div>
+    </div>
+    <div style=" text-align: right; display: inline-block;  margin-left: 550px" >
+        <form class="form-inline my-2 my-l  g-0" action="/contracts">
+            <input class="form-control mr-sm-2" type="search" placeholder="Tên khách hàng" aria-label="Search"
+                   name="customerName">
+            <button class="btn btn-primary my-2 my-sm-0" type="submit" style="color: white">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search"
+                     viewBox="0 0 16 16">
+                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                </svg>
+                <span>Search</span>
+            </button>
+        </form>
+    </div>
+
+</div>
+
+<div th:align="center" th:if="${lost}">
+    <span style="color: red" th:text="${lost}"></span>
+</div>
+<div th:align="center" th:if="${success}">
+    <span style="color: gold" th:text="${success}"></span>
+</div>
+
+<div class="container border pt-5 mt-5 ">
+    <div class="tabl">
+        <table class="table table-bordered table-striped">
+            <thead>
+            <tr style="text-align: center" class="table-dark">
+                <th>STT</th>
+                <th>Start date</th>
+                <th>End date</th>
+                <th>Total money</th>
+                <th>Customer</th>
+                <th>Service</th>
+                <th>Edit</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr style="text-align: center" th:each=" contract, tem : ${contractList}">
+                <td th:text="${tem.count}"></td>
+                <td th:text="${contract.contractStartDate}"></td>
+                <td th:text="${contract.contractEndDate}"></td>
+                <td th:text="${contract.contractTotalMoney}"></td>
+                <td th:text="${contract.customer.name}"></td>
+                <td th:text="${contract.services.serviceName}"></td>
+                <td>
+                    <a th:href="@{/contracts/edit(id=${contract.contractId})}">
+                        <button type="submit" class="btn btn-info">
+                            <svg xmln="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi
+                    bi-pencil-square" viewBox="0 0 16 16">
+                                <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75
+                    2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.50 0 0
+                    .196-.12l6.813-6.814z"/>
+                                <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0
+                    1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1
+                    2.5v11z"/>
+                            </svg>
+                            Edit
+                        </button>
+                    </a>
+                </td>
+            </tr>
+
+            </tbody>
+        </table>
+        <div>
+            <a th:href="@{'/contracts'(page=${contractList.number - 1}, customerName=${keywordCustomerName})}"
+               th:if="${contractList.hasPrevious()}">Previous</a>
+            <span th:text="${contractList.number+1}"></span>/<span th:text="${contractList.totalPages}"></span>
+            <a th:href="@{'/contracts'(page=${customers.number + 1}, customerName=${keywordCustomerName})}"
+               th:if="${contractList.hasNext()}">Next</a>
+        </div>
+    </div>
+
+</div>
+<div th:replace="~{home:: footer}"></div>
+</body>
+</html>

@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{layout :: title(Error)}">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="security" th:insert="~{home:: sercurety}"></div>
+<div th:replace="~{home :: nav-bar}"></div>
+<h1 class="text-danger text-center mt-3">Bạn không có quyền truy cập trang này !!!</h1>
+<div th:replace="~{home:: footer}"></div>
+</body>
+</html>

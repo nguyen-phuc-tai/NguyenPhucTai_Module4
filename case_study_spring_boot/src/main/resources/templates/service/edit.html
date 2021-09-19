@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="~{layout :: title(EditService)}">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<div class="security" th:insert="~{home:: sercurety}"></div>
+<div th:replace="~{home :: nav-bar}"></div>
+
+<form th:action="@{/services/edit}" th:object="${serviceDto}" method="post" novalidate="novalidate">
+    <div class="row">
+        <div class="col-3"></div>
+        <div class=" col-6">
+            <div class="alert alert-primary " role="alert" STYLE="text-align: center">
+                <h4>EDIT SERVICE INFORMATION</h4>
+
+            </div>
+        </div>
+        <div class=" col-3"></div>
+    </div>
+    <div class="row">
+        <div class="col-1"></div>
+        <div class="col-3">
+            <div class="form-group">
+                <label>Service Name</label>
+                <input type="text" class="form-control" th:field="*{serviceName}" readonly/>
+            </div>
+        </div>
+        <div class="col-2">
+            <div class="form-group">
+                <label>Service ID</label>
+                <input type="text" class="form-control" th:field="*{serviceId}" readonly/>
+            </div>
+
+        </div>
+        <div class="col-2">
+            <div class="form-group">
+                <label>Service Type </label>
+                <select class="form-control" th:field="*{serviceType}" onchange="display()" id="serviceType">
+                    <option th:each="serviceType : ${serviceTypes}" th:value="${serviceType.serviceTypeId}"
+                            th:text="${serviceType.getServiceTypeName()}"></option>
+                </select>
+            </div>
+
+        </div>
+        <div class="col-3">
+            <div class="form-group">
+                <label>Service Code</label>
+                <input type="text" class="form-control" th:field="*{serviceCode}" readonly/>
+                <!--                <span style="color: red" th:if="${#fields.hasErrors('serviceCode')}" th:errors="*{serviceCode}"></span>-->
+            </div>
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-1"></div>
+        <div class="col-3">
+            <div class="form-group" id="poolArea">
+                <label>Pool Area: </label>
+                <input type="number" class="form-control" placeholder="Enter pool area... "
+                       th:field="*{poolArea}">
+            </div>
+        </div>
+        <div class="col-2">
+            <div class="form-group">
+                <label>Service Area </label>
+                <input type="number" class="form-control" th:field="*{serviceArea}"/>
+                <span style="color: red" th:if="${#fields.hasErrors('serviceArea')}"
+                      th:errors="*{serviceArea}"></span>
+            </div>
+        </div>
+        <div class="col-2">
+            <div class="form-group">
+                <label>Rent Type </label>
+                <select class="form-control" th:field="*{rentType}">
+                    <option th:each="rentType : ${rentTypes}" th:value="${rentType.rentTypeId}"
+                            th:text="${rentType.getRentTypeName()}"></option>
+                </select>
+            </div>
+
+        </div>
+        <div class="col-3">
+            <div class="form-group" id="description">
+                <label>Description Other Convenience: </label>
+                <input type="text" class="form-control"
+                       placeholder="Enter description..." th:field="*{descriptionOtherConvenience}">
+            </div>
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-1"></div>
+        <div class="col-3">
+            <div class="form-group" id="standardRoom">
+                <label>Standard Room: </label>
+                <input type="text" class="form-control" placeholder="Enter standard room..."
+                       th:field="*{standardRoom}">
+            </div>
+
+        </div>
+        <div class="col-2">
+            <div class="form-group">
+                <label>Service Max People</label>
+                <input type="number" class="form-control" th:field="*{serviceMaxPeople}"/>
+            </div>
+        </div>
+        <div class="col-2">
+            <div class="form-group">
+                <label>Service Cost</label>
+                <input type="number" class="form-control" th:field="*{serviceCost}"/>
+                <span style="color: red" th:if="${#fields.hasErrors('serviceCost')}"
+                      th:errors="*{serviceCost}"></span>
+            </div>
+
+        </div>
+        <div class="col-3">
+            <div class="form-group" id="floors">
+                <label>Number Of Floors: </label>
+                <input type="number" class="form-control"
+                       placeholder="Enter number of floors... " th:field="*{numberOfFloors}">
+                <span style="color: red" th:if="${#fields.hasErrors('numberOfFloors')}"
+                      th:errors="*{numberOfFloors}"></span>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-1"></div>
+        <div class="col-10">
+            <div style="display: inline-block">
+                <button type="submit" class="btn btn-success my-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                         class="bi bi-calendar-check" viewBox="0 0 16 16">
+                        <path d="M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0z"/>
+                        <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
+                    </svg>
+                    Save
+                </button>
+            </div>
+            <div style="display: inline-block; margin-left: 490px">
+                <a th:href="@{/services/edit(id=${serviceDto.serviceId})}">
+                    <button type="button" class="btn btn-secondary my-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor"
+                             class="bi bi-arrow-repeat" viewBox="0 0 16 16">
+                            <path d="M11.534 7h3.932a.25.25 0 0 1 .192.41l-1.966 2.36a.25.25 0 0 1-.384 0l-1.966-2.36a.25.25 0 0 1 .192-.41zm-11 2h3.932a.25.25 0 0 0 .192-.41L2.692 6.23a.25.25 0 0 0-.384 0L.342 8.59A.25.25 0 0 0 .534 9z"/>
+                            <path fill-rule="evenodd"
+                                  d="M8 3c-1.552 0-2.94.707-3.857 1.818a.5.5 0 1 1-.771-.636A6.002 6.002 0 0 1 13.917 7H12.9A5.002 5.002 0 0 0 8 3zM3.1 9a5.002 5.002 0 0 0 8.757 2.182.5.5 0 1 1 .771.636A6.002 6.002 0 0 1 2.083 9H3.1z"/>
+                        </svg>
+                        Reset
+                    </button>
+                </a>
+
+            </div>
+            <div style="display: inline-block; margin-left: 505px">
+                <a th:href="@{/}">
+
+                    <button type="button" class="btn btn-warning my-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                             class="bi bi-arrow-return-left" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd"
+                                  d="M14.5 1.5a.5.5 0 0 1 .5.5v4.8a2.5 2.5 0 0 1-2.5 2.5H2.707l3.347 3.346a.5.5 0 0 1-.708.708l-4.2-4.2a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 8.3H12.5A1.5 1.5 0 0 0 14 6.8V2a.5.5 0 0 1 .5-.5z"/>
+                        </svg>
+                        Back
+                    </button>
+                </a>
+            </div>
+        </div>
+
+        <div class="col-1"></div>
+    </div>
+</form>
+<div th:replace="~{home:: footer}"></div>
+
+</body>
+</html>
