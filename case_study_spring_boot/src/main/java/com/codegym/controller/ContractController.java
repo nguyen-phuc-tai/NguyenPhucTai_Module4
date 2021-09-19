@@ -85,16 +85,16 @@ public class ContractController {
     public String saveService(@Valid @ModelAttribute ContractDto contractDto,
                               BindingResult bindingResult, RedirectAttributes redirectAttributes) {
 
-        List<Services> serviceList = serviceService.findAll();
+        new ContractDto().validate(contractDto, bindingResult);
+        if (bindingResult.hasErrors()) {
+            return "contract/create";
+        }
 
+        List<Services> serviceList = serviceService.findAll();
         for (Services service : serviceList) {
             if (contractDto.getServices().getServiceName().equals(service.getServiceName())) {
                 contractDto.setContractTotalMoney(service.getServiceCost());
             }
-        }
-
-        if (bindingResult.hasErrors()) {
-            return "contract/create";
         }
         Contract contract = new Contract();
         BeanUtils.copyProperties(contractDto, contract);
