@@ -11,6 +11,8 @@ import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
 import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -21,11 +23,13 @@ import java.util.List;
 @NoArgsConstructor
 public class ContractDto implements Validator {
     private Long contractId;
+    @NotBlank(message = "Vui lòng chọn ngày làm hợp đồng!")
     private String contractStartDate ;
+    @NotBlank(message = "Vui lòng chọn ngày kết thúc hợp đồng!")
     private String contractEndDate ;
-    @Min(1)
+    @NotBlank(message = "Vui lòng nhập tiền đặt cọc!")
+    @Min(value = 1, message = "Tiền đặt cọc phải là số dương lớn hơn 0!")
     private Double contractDeposit;
-    @Min(1)
     private Double contractTotalMoney;
     private List<ContractDetail> contractDetailSet;
     private Employee employee;

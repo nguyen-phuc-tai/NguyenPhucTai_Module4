@@ -18,5 +18,8 @@ public interface ICustomerRepository  extends JpaRepository<Customer, Long> {
             " where c.`name` like :customerName and cus_type.customer_type_name like :customerType", nativeQuery = true)
     Page<Customer> search(Pageable pageable,  @Param("customerName") String name, @Param("customerType") String customerType);
 
-    Optional<Customer> findAllByEmail(String email);
+    Optional<Customer> findAllByCustomerCode(String code);
+    Optional<Customer> findAllByEmail(String code);
+
+    Optional<Customer> findAllByPhone(String phone);
 }

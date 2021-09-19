@@ -26,7 +26,8 @@ public interface IEmployeeService {
 
     void remove(Long id);
 
-
+    Optional<Employee> findAllByEmail(String email);
+    Optional<Employee> findAllByPhone(String phone);
 
     List<Division> findAllDivision();
     List<EducationDegree> findAllEducationDegree();

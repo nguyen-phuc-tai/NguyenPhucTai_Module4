@@ -31,6 +31,8 @@
             <div class="form-group">
                 <label>Name:</label>
                 <input type="text" class="form-control" th:field="*{employeeName}">
+                <span style="color: red" th:if="${#fields.hasErrors('employeeName')}"
+                      th:errors="*{employeeName}"></span>
             </div>
         </div>
         <div class="col-4">
@@ -39,6 +41,7 @@
                 <input type="email" class="form-control" th:field="*{employeeEmail}">
                 <span style="color: red" th:if="${#fields.hasErrors('employeeEmail')}"
                       th:errors="*{employeeEmail}"></span>
+                <span style="color: red" th:if="${employeeEmail}"></span>
             </div>
         </div>
         <div class="col-3">
@@ -67,6 +70,7 @@
                 <input type="number" class="form-control" th:field="*{employeePhone}">
                 <span style="color: red" th:if="${#fields.hasErrors('employeePhone')}"
                       th:errors="*{employeePhone}"></span>
+                <span style="color: red" th:if="${employeePhone}"></span>
             </div>
         </div>
         <div class="col-2">
@@ -79,6 +83,8 @@
             <div class="form-group">
                 <label>Address: </label>
                 <input type="text" class="form-control" th:field="*{employeeAddress}">
+                <span style="color: red" th:if="${#fields.hasErrors('employeeAddress')}"
+                      th:errors="*{employeeAddress}"></span>
             </div>
         </div>
     </div>

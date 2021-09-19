@@ -56,6 +56,16 @@ public class EmployeeService implements IEmployeeService {
     }
 
     @Override
+    public Optional<Employee> findAllByEmail(String email) {
+        return employeeRepository.findAllByEmployeeEmail(email);
+    }
+
+    @Override
+    public Optional<Employee> findAllByPhone(String phone) {
+        return employeeRepository.findAllByEmployeePhone(phone);
+    }
+
+    @Override
     public List<Division> findAllDivision() {
         return divisionRepository.findAll();
     }

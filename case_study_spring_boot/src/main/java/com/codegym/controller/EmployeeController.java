@@ -1,6 +1,7 @@
 package com.codegym.controller;
 
 import com.codegym.dto.EmployeeDto;
+import com.codegym.model.entity.customer.Customer;
 import com.codegym.model.entity.employee.Division;
 import com.codegym.model.entity.employee.EducationDegree;
 import com.codegym.model.entity.employee.Employee;
@@ -47,7 +48,19 @@ public class EmployeeController {
     }
 
     @PostMapping(value = "/save")
-    public String saveEmployee(@Valid @ModelAttribute EmployeeDto employeeDto, BindingResult bindingResult, RedirectAttributes redirectAttributes) {
+    public String saveEmployee(@Valid @ModelAttribute EmployeeDto employeeDto, BindingResult bindingResult,
+                               RedirectAttributes redirectAttributes, Model model) {
+        Optional<Employee> phone = employeeService.findAllByPhone(employeeDto.getEmployeePhone());
+        if(phone.isPresent()){
+            model.addAttribute("employeePhone","Số điện thoại đã được đăng kí");
+            return "/employee/create";
+        }
+        Optional<Employee> email = employeeService.findAllByEmail(employeeDto.getEmployeeEmail());
+        if(email.isPresent()){
+            model.addAttribute("employeeEmail","Email đã được đăng kí");
+            return "/employee/create";
+        }
+
         if (bindingResult.hasErrors()) {
             return "/employee/create";
         }

@@ -17,28 +17,28 @@ import javax.validation.constraints.Pattern;
 @AllArgsConstructor
 public class ServiceDto {
     private  Long serviceId;
-    @NotBlank(message = "Please fill out the form")
+    @NotBlank(message = "Tên dịch vụ không được để trống")
     private  String serviceName;
-    @NotBlank(message = "Please fill out the form")
+    @NotBlank(message = "Mã dịch vụ không được để trống")
     @Pattern(regexp = "^DV-[0-9]{4}",  message = "Mã dịch vụ phải đúng định dạng DV-xxxx")
     private  String serviceCode;
-    @Min(10)
+    @Min(value = 1,message = "Diện tích phải lớn hơn 0")
     private int serviceArea;
-    @Min(1)
-    @NotNull(message = "Please fill out the form")
+    @Min(value = 1,message = "Giá dịch vụ phải lớn hơn 0")
+    @NotBlank(message = "Giá dịch vụ không được để trống")
     private double serviceCost;
-    @Min(1)
-    @NotNull(message = "Please fill out the form")
+    @Min(value = 1,message = "Số người phải là số dương lớn hơn 0")
+    @NotBlank(message = "Vui lòng nhập số người tối đa!")
     private int serviceMaxPeople;
-    @NotBlank(message = "Please fill out the form")
+    @NotBlank(message = "Tiêu chuẩn phòng không được để trống")
     private String standardRoom;
-    @NotBlank(message = "Please fill out the form")
+    @NotBlank(message = "Vui lòng nhập mô tả")
     private String descriptionOtherConvenience;
-    @Min(10)
-    @NotNull
+    @Min(value = 1,message = "Diện tích hồ bơi phải lớn hơn 0!")
+    @NotBlank(message = "Diện tích hồ bơi không được để trống!")
     private  double poolArea;
-    @Min(1)
-    @NotNull(message = "Please fill out the form")
+    @Min(value = 1,message = "Số tầng phải là số dương lớn hơn 0!")
+    @NotBlank(message = "Vui lòng nhập số tầng")
     private int numberOfFloors;
     private ServiceType serviceType;
     private RentType rentType;

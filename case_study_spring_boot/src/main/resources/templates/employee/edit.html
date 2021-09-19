@@ -56,17 +56,17 @@
         <div class="col-3">
             <div class="form-group">
                 <label>Email: </label>
-                <input type="email" class="form-control" th:field="*{employeeEmail}">
-                <span style="color: red" th:if="${#fields.hasErrors('employeeEmail')}"
-                      th:errors="*{employeeEmail}"></span>
+                <input type="email" class="form-control" th:field="*{employeeEmail}" readonly>
+<!--                <span style="color: red" th:if="${#fields.hasErrors('employeeEmail')}"-->
+<!--                      th:errors="*{employeeEmail}"></span>-->
             </div>
         </div>
         <div class="col-2">
             <div class="form-group">
                 <label>Phone: </label>
-                <input type="number" class="form-control" th:field="*{employeePhone}">
-                <span style="color: red" th:if="${#fields.hasErrors('employeePhone')}"
-                      th:errors="*{employeePhone}"></span>
+                <input type="number" class="form-control" th:field="*{employeePhone}" readonly>
+<!--                <span style="color: red" th:if="${#fields.hasErrors('employeePhone')}"-->
+<!--                      th:errors="*{employeePhone}"></span>-->
             </div>
         </div>
         <div class="col-2">

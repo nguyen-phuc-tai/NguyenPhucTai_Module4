@@ -8,6 +8,8 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import java.util.Optional;
+
 @Repository
 public interface IEmployeeRepository extends JpaRepository<Employee,Long> {
     @Query(value = "select * from employee e join division di on e.division_id = di.division_id join" +
@@ -18,4 +20,6 @@ public interface IEmployeeRepository extends JpaRepository<Employee,Long> {
                           @Param("employeePo") String employeePo,
                           @Param("emlpoyeeName") String emlpoyeeName);
 
+    Optional<Employee> findAllByEmployeeEmail(String email);
+    Optional<Employee> findAllByEmployeePhone(String phone);
 }

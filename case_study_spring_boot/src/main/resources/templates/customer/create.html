@@ -30,6 +30,7 @@
                 <input type="text" class="form-control" th:field="*{customerCode}"/>
                 <span style="color: red" th:if="${#fields.hasErrors('customerCode')}"
                       th:errors="*{customerCode}"></span>
+                <span style="color: red" th:if="${customerCode}"></span>
             </div>
         </div>
         <div class="col-4">
@@ -88,6 +89,7 @@
                 <label>Phone Number</label>
                 <input type="text" class="form-control" th:field="*{phone}"/>
                 <span style="color: red" th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}"></span>
+                <span style="color: red" th:if="${customerPhone}"></span>
             </div>
         </div>
         <div class="col-4">
@@ -95,6 +97,7 @@
                 <label>Email</label>
                 <input type="text" class="form-control" th:field="*{email}"/>
                 <span style="color: red" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
+                <span style="color: red" th:if="${customerEmail}"></span>
             </div>
         </div>
         <div class="col-3">

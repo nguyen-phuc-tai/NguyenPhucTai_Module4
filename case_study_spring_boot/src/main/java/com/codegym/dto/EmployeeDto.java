@@ -18,26 +18,25 @@ import java.io.File;
 @NoArgsConstructor
 public class EmployeeDto {
     private Long employeeId;
-    @NotBlank(message = "Please fill out the form")
+    @NotBlank(message = "Tên không được để trống!")
     private String employeeName;
     @Column(columnDefinition = "DATE")
-    @NotBlank(message = "Please fill out the form")
+    @NotBlank(message = "Vui lòng nhập ngày sinh!")
     private String employeeBirthday;
-    @NotBlank
-    @Pattern(regexp = "^\\d{9}|\\d{12}$", message = "Not valid (9 number or 12 number)")
+    @NotBlank(message = "IdCard không được để trống")
+    @Pattern(regexp = "^\\d{9}|\\d{12}$", message = "IdCard không đúng định dạng (9 number or 12 number)")
     private String employeeIdCard;
-    @NotBlank
-    @Min(1)
-    @NotNull(message = "Please fill out the form")
+    @Min(value = 1, message = "Lương nhân viên phải là số dương lớn hơn 0!")
+    @NotBlank(message = "Vui lòng nhập lương nhân viên")
     private String employeeSalary;
-    @NotBlank
-    @Pattern(regexp = "^090\\d{7}|\\(84\\)\\+90\\d{7}|091\\d{7}|\\(84\\)\\+91\\d{7}$",message = "Telephone not valid " +
+    @NotBlank(message = "Vui lòng nhập số điện thoại")
+    @Pattern(regexp = "^090\\d{7}|\\(84\\)\\+90\\d{7}|091\\d{7}|\\(84\\)\\+91\\d{7}$",message = "Số điện thoại không đúng định dạng " +
             "(090xxxxxxx or 091xxxxxxx or (84)+90xxxxxxx or (84)+91xxxxxxx)")
     private String employeePhone;
-    @NotNull(message = "Please fill out the form")
-    @Email(message = "Email not valid")
+    @NotBlank(message = "Email không được để trống")
+    @Email(message = "Email không đúng định dạng")
     private String employeeEmail;
-    @NotBlank(message = "Please fill out the form")
+    @NotBlank(message = "Vui lòng nhập địa chỉ!")
     private String employeeAddress;
     private Position position;
     private Division division;

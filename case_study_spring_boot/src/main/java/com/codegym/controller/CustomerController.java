@@ -62,7 +62,24 @@ public class CustomerController {
 
     @PostMapping(value = "/save")
     public String saveCustomer(@Valid @ModelAttribute CustomerDto customerDto, BindingResult bindingResult,
-                               RedirectAttributes redirectAttributes) {
+                               RedirectAttributes redirectAttributes, Model model) {
+        Optional<Customer> code = customerService.findAllByCustomerCode(customerDto.getCustomerCode());
+        if(code.isPresent()){
+            model.addAttribute("customerCode","Mã khách hàng đã tồn tại");
+            return "/customer/create";
+        }
+
+        Optional<Customer> phone = customerService.findAllByPhone(customerDto.getPhone());
+        if(phone.isPresent()){
+            model.addAttribute("customerPhone","Số điện thoại đã được đăng kí");
+            return "/customer/create";
+        }
+        Optional<Customer> email = customerService.findAllByEmail(customerDto.getEmail());
+        if(email.isPresent()){
+            model.addAttribute("customerEmail","Email đã được đăng kí");
+            return "/customer/create";
+        }
+
         if (bindingResult.hasErrors()) {
             return "/customer/create";
         }

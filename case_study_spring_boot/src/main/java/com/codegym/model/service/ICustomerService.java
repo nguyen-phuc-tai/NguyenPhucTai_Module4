@@ -26,6 +26,9 @@ public interface ICustomerService {
 
     List<CustomerType> findAllCustomerType();
 
+    Optional<Customer> findAllByCustomerCode(String code);
     Optional<Customer> findAllByEmail(String email);
+    Optional<Customer> findAllByPhone(String phone);
+    Optional<Customer> findAllByEmailOrPhoneOrCustomerCode(String email);
 
 }

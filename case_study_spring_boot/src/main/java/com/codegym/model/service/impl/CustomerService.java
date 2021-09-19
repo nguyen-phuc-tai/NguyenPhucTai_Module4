@@ -59,7 +59,22 @@ public class CustomerService implements ICustomerService {
     }
 
     @Override
+    public Optional<Customer> findAllByCustomerCode(String code) {
+        return customerRepository.findAllByCustomerCode(code);
+    }
+
+    @Override
     public Optional<Customer> findAllByEmail(String email) {
         return customerRepository.findAllByEmail(email);
+    }
+
+    @Override
+    public Optional<Customer> findAllByPhone(String phone) {
+        return customerRepository.findAllByPhone(phone);
+    }
+
+    @Override
+    public Optional<Customer> findAllByEmailOrPhoneOrCustomerCode(String email) {
+        return Optional.empty();
     }
 }
